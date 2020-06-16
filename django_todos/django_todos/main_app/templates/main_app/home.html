@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Todos</title>
+</head>
+
+<body>
+    <h1>Django Todos</h1>
+    <ul>
+        {% for todo in todos %}
+        <li>{{ todo.todo_text }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'todo_create' %}" method="POST">
+        {% csrf_token %}
+        <input name="todo_text">
+        <button type="submit">Add TODO</button>
+    </form>
+</body>
+
+</html>
